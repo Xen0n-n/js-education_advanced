@@ -11,7 +11,6 @@ function Person(firstName, lastName, yearOfBirth) {
     this.calcAge = function () {
         console.log(new Date().getFullYear() - this.yearOfBirth);
     }
-
 }
 
 let user1 = new Person('Petr', 'Petrov', 1990);
