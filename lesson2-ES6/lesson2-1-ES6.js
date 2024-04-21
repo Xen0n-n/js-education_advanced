@@ -6,7 +6,9 @@ class Person {
         this.yearOfBirth = yearOfBirth;
     }
 
-    calcAge() {
+    // Если метод определен с помощью _ то считается (на уровне договоренности), что
+    // он может запускаться лишь от текущего класса (типа приватность)
+    _calcAge() {
         console.log(new Date().getFullYear() - this.yearOfBirth);
     }
 
