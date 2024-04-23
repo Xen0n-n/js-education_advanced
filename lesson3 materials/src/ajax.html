@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head> 
+<body>
+    <div id="data"></div>
+    <script> 
+        //ES-5
+//        let xhr= new XMLHttpRequest();
+//        xhr.open("GET","tel.json",true); //true - асинхронный запрос
+//        console.log(xhr.readyState);
+//        //0 - запрос не инициализирован
+//        //1 - загрузка данных
+//        //2 - запрос сервером принят
+//        //3 - идет обмен данными
+//        //4 - запрос выполнен
+//        
+//        xhr.onreadystatechange = () =>{
+//            if(xhr.readyState != 4){
+//                return "Error";
+//            }
+//            if(xhr.status != 200){
+//                return "Error status not 200";
+//            }
+//            else{
+//                let data = JSON.parse(xhr.responseText);
+//                let block = document.getElementById("data");
+//                block.insertAdjacentHTML('beforeend',`<p>${data.name} - ${data.tel}</p>`);
+//            }
+//        }
+//        xhr.send();
+        
+        fetch("tel.json")//fetch - это функция, которая выполняет ajax запрос и возвращает объект promice
+            .then(text => text.json())//json - метод, который парсит json строку и возращает объект промиса
+            .then(data => {
+                let block = document.getElementById("data");
+                block.insertAdjacentHTML('beforeend',`<p>${data.name} - ${data.tel}</p>`);
+            })
+    </script>
+</body>
+</html>
