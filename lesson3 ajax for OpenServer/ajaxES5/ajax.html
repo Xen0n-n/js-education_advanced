@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script>
+        // ES-5
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "tel.json", true); // true - асинхронный запрос
+        console.log(xhr.readyState);
+        // 0 - запрос не инициализирован
+        // 1 - идет загрузка данных
+        // 2 - запрос сервером принят
+        // 3 - идет обмен данными
+        // 4 - запрос выполнен
+        xhr.onreadystatechange = () => {
+            if(xhr.readyState !== 4) {
+                return "Error";
+            }
+            if(xhr.status !== 200){
+                return "Error status not 200"
+            }
+            else {
+                let data = JSON.parse(xhr.responseText);
+                document.querySelector("div").insertAdjacentHTML("beforeend",`<p>${data.name} - ${data.tel}</p>`)
+            }   
+        }
+        xhr.send();
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <div></div>
+    <!-- ES6 вариант -->
+    <script>
+        // Fetch - функция которая выполняет ajax запрос
+        // (запрос на сервер без перезагрузки страницы)
+        // возвращает объект promise
+        
+        fetch("tel.json") // если успешно - then
+            .then(text => text.json()) // json() - метод который парсит json строку и возвращает объект promise
+            //                  |
+            //   ================
+            //  |
+            .then(data => { // data - объект JS
+                document.querySelector("div").insertAdjacentHTML("beforeend",`<p>${data.name} - ${data.tel}</p>`)
+            })
+    </script>
+</body>
+</html>
