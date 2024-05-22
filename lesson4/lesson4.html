@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Регулярки
+        // Синтаксис 1
+        // let regexp = new RegExp('само рег выражение', 'флажки');
+
+        // Синтаксис 2 
+        // let regexp = /рег. выражение/флаги
+
+        // Флаги
+        // i - поиск без учета регистра
+        // g - множественный поиск
+        // m - многострочный поиск
+
+        let str = 'Язык JavaScript называется так из-за популярности языка Java';
+        let regexp = new RegExp('java');
+        let regexp1 = new RegExp('java', 'i')
+
+        // String methods
+        // search 
+        // -1 - вхождение не найдено
+        // Возвращает индекс первого вхождения
+
+        console.log(str.search(regexp)); // вывод -1 так как учитывается регистр выражения
+        console.log(str.search(regexp1)); // вывод 5 - индекс первого вхождения так как регистр не учитывается посредством флажка i
+        
+        // match
+        // null - не найдено
+        // возвращает массив-объект с подробной информацией
+        
+        console.log(str.match(regexp)); // null - учет регистра
+        console.log(str.match(regexp1)); // объект match с инфой
+
+
+    </script>
+</body>
+</html>
